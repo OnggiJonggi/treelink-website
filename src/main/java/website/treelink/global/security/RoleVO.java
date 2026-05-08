@@ -1,6 +1,4 @@
-package website.treelink.golbal.security;
-
-import org.apache.ibatis.type.Alias;
+package website.treelink.global.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,9 +10,9 @@ public class RoleVO {
 	@NoArgsConstructor
 	@AllArgsConstructor
 	@Getter
-	@Alias("RoleUserNoUrl")
-	public static class UserNoUrl{
-		public int userNo;
-		public String url;
+	public static class UrlAccessCheck{
+		int memberNo;
+		String pattern;
+		String httpMethod;
 	}
 }

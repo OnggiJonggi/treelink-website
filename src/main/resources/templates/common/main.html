@@ -8,13 +8,12 @@
     <th:block th:replace="~{/common/fragment :: library}"></th:block>
     <link rel="stylesheet" th:href="@{/css/common/main.css}">
 </head>
-
 <body>
     <main class="main-wrapper">
 
         <!-- 1. 로고 -->
         <div class="logo-area">
-            <img th:src="@{static/img/main-logo.png}" alt="TreeLink 로고" width="360" height="120" loading="eager">
+            <img th:src="@{/img/main-logo.png}" alt="TreeLink 로고" width="360" height="120" loading="eager">
         </div>
 
         <!-- 2. 두 개의 메뉴 카드 -->
@@ -53,13 +52,16 @@
             </div>
 
         </div><!-- /.card-row -->
+    </main>
 
-
-        <script>
+    <script>
+        
+        // document.addEventListener('DOMContentLoaded', function () {
             lucide.createIcons();
-        </script>
-
-        <script th:src="@{/js/common/main.js}"></script>
+        // });
+        
+    </script>
+    <script th:src="@{/js/common/main.js}"></script>
 </body>
 
 </html>

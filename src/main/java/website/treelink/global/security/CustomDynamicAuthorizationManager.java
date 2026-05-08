@@ -1,4 +1,4 @@
-package website.treelink.golbal.security;
+package website.treelink.global.security;
 
 import java.util.function.Supplier;
 
@@ -27,9 +27,10 @@ public class CustomDynamicAuthorizationManager implements AuthorizationManager<R
 	public AuthorizationDecision check(Supplier<? extends @Nullable Authentication> authentication2, 
                                        RequestAuthorizationContext context) {
         
-		// url경로 확인
+		// url경로, http메서드 확인
         HttpServletRequest request = context.getRequest();
         String requestUrl = request.getRequestURI();
+        String requestMethod = request.getMethod();
 
         // 유저 확인
         Authentication authentication = authentication2.get();
@@ -46,7 +47,7 @@ public class CustomDynamicAuthorizationManager implements AuthorizationManager<R
         // 해당 주소에 접근이 가능하니
         // 접근 가능하면 true, 안돼면 false
         boolean isAllowed = false;
-        RoleVO.UserNoUrl userNoUrl = new RoleVO.UserNoUrl(userNo, requestUrl);
+        RoleVO.UrlAccessCheck userNoUrl = new RoleVO.UrlAccessCheck(userNo, requestUrl, requestMethod);
         if(roleMapper.selectUrlIsAllowed(userNoUrl)==1) {
         	isAllowed = true;
         }

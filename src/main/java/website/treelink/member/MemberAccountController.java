@@ -21,6 +21,11 @@ public class MemberAccountController {
 	@Autowired
 	private MemberAccountService service;
 	
+	@GetMapping("/login")
+	public String login() {
+		return "member/login";
+	}
+	
 	/**
 	 * 회원 가입 페이지로 가세요라
 	 * @return 회원가입 페이지
@@ -43,6 +48,7 @@ public class MemberAccountController {
 			,BindingResult bindingResult){
 		
 		// 유효성 검사 실패하면 가세요라
+		// BindingResult는 html파일 경로를 반환해도 됨
 		if(bindingResult.hasErrors()) return "member/join";
 		
 		service.join(memberJoin);
@@ -59,4 +65,16 @@ public class MemberAccountController {
 		service.checkId(userId);
 		return ResponseEntity.ok().build();
 	}
+	
+	/**
+	 * 닉네임 중복 확인
+	 * @param nickname
+	 * @return 정상 200, 이상해요 500
+	 */
+	@PostMapping("/check-nickname")
+	public ResponseEntity<Void> checkNickName(String nickname) {
+		service.checkNick(nickname);
+		return ResponseEntity.ok().build();
+	}
+	
 }

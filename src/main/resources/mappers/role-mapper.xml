@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="website.treelink.golbal.security.RoleMapper">
+<mapper namespace="website.treelink.global.security.RoleMapper">
 
-	<select id="selectUrlIsAllowed" parameterType="website.treelink.golbal.security.RoleVO$UserNoUrl" >
+	<select id="selectUrlIsAllowed" parameterType="RoleUrlAccessCheck" >
 		select IS_ALLOWED
 		from MEMBERS M
 		left join MEMBERS_ROLES MR on M.MEMBERS_NO = MR.MEMBERS_NO

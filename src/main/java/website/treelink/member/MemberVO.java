@@ -2,8 +2,6 @@ package website.treelink.member;
 
 import java.util.List;
 
-import org.apache.ibatis.type.Alias;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -17,7 +15,6 @@ public class MemberVO {
 	@NoArgsConstructor
 	@AllArgsConstructor
 	@Getter
-	@Alias("MemberLogin")
 	public static class Login{
 		private String userId;
 		private String userPwd;
@@ -26,13 +23,12 @@ public class MemberVO {
 	@NoArgsConstructor
 	@AllArgsConstructor
 	@Getter
-	@Alias("MemberDetail")
 	public static class Detail{
 		private int memberNo;
 		private String userId;
 		private String userPwd;
 		private String name;
-		private String nickName;
+		private String nickname;
 		private List<String> roles;
 	}
 	
@@ -40,7 +36,6 @@ public class MemberVO {
 	@AllArgsConstructor
 	@Getter
 	@Setter
-	@Alias("MemberJoin")
 	public static class Join{
 		private int memberNo;
 		
@@ -58,7 +53,7 @@ public class MemberVO {
 		
 		@NotBlank(message="별명없는 고객이 트리링크를 떠돈다.")
 		@Pattern(regexp = MemberRegexp.NAME_REGEXP, message="제대로 된 별명 주세요.")
-		private String nickName;
+		private String nickname;
 	}
 
 }

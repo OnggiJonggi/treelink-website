@@ -47,4 +47,12 @@ public class MemberAccountServiceImpl implements MemberAccountService{
 			throw new CustomException(ErrorCode.ID_IS_DUPLICATED);
 	}
 	
+	/**
+	 * 닉네임 중복 확인
+	 */
+	@Override
+	public void checkNick(String nickname) {
+		if(memberDao.selectCheckNickname(nickname) > 0)
+			throw new CustomException(ErrorCode.NICKNAME_IS_DUPLICATED);
+	}
 }

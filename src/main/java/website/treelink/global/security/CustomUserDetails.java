@@ -1,4 +1,4 @@
-package website.treelink.golbal.security;
+package website.treelink.global.security;
 
 import java.util.ArrayList;
 import java.util.Collection;

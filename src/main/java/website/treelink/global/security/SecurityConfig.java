@@ -1,4 +1,4 @@
-package website.treelink.golbal.security;
+package website.treelink.global.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,9 +43,9 @@ public class SecurityConfig {
             .loginPage("/member/login") // 로그인 페이지
             .loginProcessingUrl("/member/loginProc") // 로그인 버튼 누르면 작동하는 페이지
             .usernameParameter("userId") // form태그 아이디 속성값 (기본값 username)
-            .passwordParameter("userPw") // form태그 비번 속성값 (기본값 password)
+            .passwordParameter("userPwd") // form태그 비번 속성값 (기본값 password)
             .defaultSuccessUrl("/") // 로그인 성공 시 이동할 페이지
-            .failureUrl("/") // 로그인 실패 시 이동할 페이지 (기본값 로그인페이지+?error)
+            .failureUrl("/member/login?error=true") // 로그인 실패 시 이동할 페이지 (기본값 로그인페이지+?error)
             .permitAll() // 접근 제한 없음
         );
 

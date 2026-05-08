@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC
+  "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">	
+<configuration>
+
+    <settings>
+    	<!-- 오라클 NULL 설정 -->
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		
+    	<!-- 카멜 케이스 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
+    <typeAliases>
+    	<!-- Member -->
+        <typeAlias type="website.treelink.member.MemberVO$Login" alias="MemberLogin"/>
+        <typeAlias type="website.treelink.member.MemberVO$Detail" alias="MemberDetail"/>
+        <typeAlias type="website.treelink.member.MemberVO$Join" alias="MemberJoin"/>
+        
+        <!-- Role -->
+        <typeAlias type="website.treelink.global.security.RoleVO$UrlAccessCheck" alias="RoleUrlAccessCheck"/>
+        
+        <!-- 전역 설정 -->
+        <package name="website.treelink"/>
+    </typeAliases>
+</configuration>

@@ -22,5 +22,9 @@ public class MemberDao {
 		return sqlSession.insert("memberMapper.insertMember", memberJoin);
 	}
 
+	public int selectCheckNickname(String nickname) {
+		return sqlSession.selectOne("memberMapper.selectCheckNickname", nickname);
+	}
+
 	
 }

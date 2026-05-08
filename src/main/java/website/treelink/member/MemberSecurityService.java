@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import website.treelink.golbal.security.CustomUserDetails;
+import website.treelink.global.security.CustomUserDetails;
 
 /**
  * spring security에서 사용하는 로그인 서비스 로직
