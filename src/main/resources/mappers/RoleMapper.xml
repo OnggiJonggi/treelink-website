@@ -7,12 +7,12 @@
 
 	<select id="selectUrlIsAllowed" parameterType="RoleUrlAccessCheck" >
 		select IS_ALLOWED
-		from MEMBERS M
-		left join MEMBERS_ROLES MR on M.MEMBERS_NO = MR.MEMBERS_NO
-		left join ROLES R on MR.ROLES_ID = R.ROLES_ID
-		left join ROLE_RESOURCES RR on R.ROLES_ID = RR.ROLES_ID
-		left join URL_RESOURCES UR on RR.URL_RESOURCES_ID = UR.URL_RESOURCES_ID
-		where M.MEMBERS_NO = #{userNO}
+		from MEMBER M
+		left join MEMBER_ROLE MR on M.MEMBER_NO = MR.MEMBER_NO
+		left join ROLE_INFO R on MR.ROLE_NO = R.ROLE_NO
+		left join ROLE_RESOURCE RR on R.ROLE_NO = RR.ROLE_NO
+		left join URL_RESOURCE UR on RR.RESOURCE_NO = UR.RESOURCE_NO
+		where M.MEMBER_NO = #{userNO}
 		and #{url} LIKE UR.URL_PATTERN || '%'
 	</select>
 	

@@ -14,7 +14,7 @@ import website.treelink.global.exception.ErrorCode;
  */
 @Service
 @RequiredArgsConstructor
-public class MemberAccountServiceImpl implements MemberAccountService{
+public class MemberServiceImpl implements MemberService{
 	private final MemberDao memberDao;
 	private final PasswordEncoder passwordEncoder;
 	

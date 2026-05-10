@@ -11,19 +11,19 @@ public class MemberDao {
 	private SqlSessionTemplate sqlSession;
 
 	public MemberVO.Detail selectMemberById(String userId) {
-		return sqlSession.selectOne("memberMapper.selectMemberById", userId);
+		return sqlSession.selectOne("MemberMapper.selectMemberById", userId);
 	}
 	
 	public int selectCheckId(String userId) {
-		return sqlSession.selectOne("memberMapper.selectCheckId", userId);
+		return sqlSession.selectOne("MemberMapper.selectCheckId", userId);
 	}
 	
 	public int insertMember(MemberVO.Join memberJoin) {
-		return sqlSession.insert("memberMapper.insertMember", memberJoin);
+		return sqlSession.insert("MemberMapper.insertMember", memberJoin);
 	}
 
 	public int selectCheckNickname(String nickname) {
-		return sqlSession.selectOne("memberMapper.selectCheckNickname", nickname);
+		return sqlSession.selectOne("MemberMapper.selectCheckNickname", nickname);
 	}
 
 	

@@ -17,9 +17,9 @@ import jakarta.validation.Valid;
  */
 @Controller
 @RequestMapping("/member")
-public class MemberAccountController {
+public class MemberController {
 	@Autowired
-	private MemberAccountService service;
+	private MemberService service;
 	
 	@GetMapping("/login")
 	public String login() {

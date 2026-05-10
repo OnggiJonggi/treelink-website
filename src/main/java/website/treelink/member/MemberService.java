@@ -1,6 +1,6 @@
 package website.treelink.member;
 
-public interface MemberAccountService {
+public interface MemberService {
 
 	public void join(MemberVO.Join memberJoin);
 
