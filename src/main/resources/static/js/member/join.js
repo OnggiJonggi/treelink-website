@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         btnCheckId.textContent = '확인 중…';
 
         $.ajax({
-            url: '/member/check-id',
+            url: '/api/member/check-id',
             type: 'POST',
             data: { userId: val },
             success: function () {
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
         btnCheckNick.textContent = '확인 중…';
 
         $.ajax({
-            url: '/member/check-nickname',
+            url: '/api/member/check-nickname',
             type: 'POST',
             data: { 'check-nickname': val },
             success: function () {
