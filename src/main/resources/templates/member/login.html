@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <th:block th:replace="~{/common/fragment :: library}"></th:block>
+    <th:block th:replace="~{/common/fragment :: common}"></th:block>
     <link rel="stylesheet" th:href="@{/css/member/login.css}">
 </head>
 <body>
@@ -27,7 +27,7 @@
                 <span>아이디 또는 비밀번호가 올바르지 않습니다.</span>
             </div>
 
-            <form th:action="@{/member/login-proc}" method="post" id="loginForm" novalidate>
+            <form th:action="@{/member/login}" method="post" id="loginForm" novalidate>
 
                 <!-- 아이디 -->
                 <div class="field-group" id="group-userId">
