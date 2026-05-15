@@ -23,16 +23,19 @@ public class MemberServiceImpl implements MemberService{
 	 */
 	@Transactional
 	public void join(MemberVO.Join memberJoin) {
-		
 		// 아이디 중복 검사
 		if(memberDao.selectCheckId(memberJoin.getUserId()) > 0 )
 			throw new CustomException(ErrorCode.ID_IS_DUPLICATED);
+		
+		// 닉네임 중복 검사
+		if(memberDao.selectCheckNickname(memberJoin.getNickname()) > 0)
+			throw new CustomException(ErrorCode.NICKNAME_IS_DUPLICATED);
 		
 		// 비번 암호화
 		memberJoin.setUserPwd(passwordEncoder.encode(memberJoin.getUserPwd()));
 		
 		// DB에 추가하기
-		if(memberDao.insertMember(memberJoin) ==0)
+		if(memberDao.insertJoin(memberJoin) ==0)
 			throw new CustomException(ErrorCode.CANNOT_CREATE_MEMBER);
 
 		return;

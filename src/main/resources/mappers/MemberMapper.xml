@@ -2,25 +2,26 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="MemberMapper">
-	<resultMap id="MemberDetailMap" type="MemberDetail">
-	    <result property="memberNo" column="MEMBERS_NO"/>
+	<resultMap id="CryptedNumberMap" type="CryptedNumberVO">
+			<result property="number" column="MEMBER_NO"/>
+	</resultMap>
+	<resultMap id="MemberDetailMap" type="MemberDetail" extends="CryptedNumberMap">
 	    <result property="userId" column="ID"/>
 	    <result property="userPwd" column="PWD"/>
 	    <result property="name" column="NAME"/>
-	    <result property="nickName" column="NICK_NAME"/>
+	    <result property="nickname" column="NICKNAME"/>
 	</resultMap>
 	<resultMap id="MemberJoinMap" type="MemberJoin">
-	    <result property="memberNo" column="MEMBERS_NO"/>
+	    <result property="memberNo" column="MEMBER_NO"/>
 	    <result property="userId" column="ID"/>
 	    <result property="userPwd" column="PWD"/>
 	    <result property="name" column="NAME"/>
-	    <result property="nickName" column="NICK_NAME"/>
+	    <result property="nickname" column="NICKNAME"/>
 	</resultMap>
 	
 	<select id="selectMemberById" parameterType="MemberLogin" resultMap="MemberDetailMap" >
-		select MEMBER_NO, ID, PWD, NAME, NICK_NAME
+		select MEMBER_NO, ID, PWD, NAME, NICKNAME
 		from MEMBER
 		where ID = #{userId}
 	</select>
@@ -37,23 +38,23 @@
 		where NICKNAME = #{nickname}
 	</select>
 	
-	<insert id="insertJoin" parameterMap="MemberJoinMap" >
+	<insert id="insertJoin" parameterType="MemberJoin" >
 		<selectKey keyProperty="memberNo" resultType="_int" order="BEFORE">
-			SELECT SEQ_MEMBERS.nextval FROM DUAL
+			SELECT SEQ_MEMBER.nextval FROM DUAL
 		</selectKey>
 		insert into MEMBER (
 			MEMBER_NO
 			,ID
 			,PWD
 			,NAME
-			,NICK_NAME
+			,NICKNAME
 			)
 		values(
 			#{memberNo}
 			,#{userId}
 			,#{userPwd}
 			,#{name}
-			,#{nickName}
+			,#{nickname}
 		)
 	</insert>
 	

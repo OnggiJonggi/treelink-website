@@ -105,9 +105,18 @@ a {
         ============================================= */
 .card-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--space-4);
   width: 100%;
+}
+
+.card-row > div:has(> .menu-card) {
+  display: contents;
+}
+
+/* 권한 카드가 있을 때 3열 */
+.card-row--three {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* =============================================
@@ -148,6 +157,15 @@ a {
   border-radius: var(--radius-xl);
 }
 
+.menu-card--static {
+  cursor: default;
+}
+
+.menu-card--static:hover {
+  transform: none;
+  box-shadow: var(--shadow-md);
+  background: var(--color-surface);
+}
 /* 아이콘 래퍼 */
 .card-icon {
   width: 52px;
@@ -159,6 +177,12 @@ a {
   border-radius: var(--radius-lg);
   color: var(--color-primary);
   flex-shrink: 0;
+}
+
+.card-icon--admin,
+.card-icon--evaluator {
+  background: var(--color-primary-highlight);
+  color: var(--color-primary);
 }
 
 .card-icon svg {
@@ -237,6 +261,7 @@ a {
         ============================================= */
 @media (max-width: 480px) {
   .card-row {
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-3);
   }
 
@@ -253,5 +278,9 @@ a {
   .card-icon svg {
     width: 22px;
     height: 22px;
+  }
+
+  .card-row--three {
+    grid-template-columns: 1fr 1fr;
   }
 }

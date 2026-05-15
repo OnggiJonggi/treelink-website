@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import website.treelink.global.security.CustomUserDetails;
+import website.treelink.global.security.RoleMapper;
 
 /**
  * spring security에서 사용하는 로그인 서비스 로직
@@ -18,6 +19,7 @@ public class MemberSecurityService implements UserDetailsService{
 	
 	//sqltemplate는 서비스 단계에서 쓰면 안돼요!
 	private final MemberDao memberDao;
+	private final RoleMapper roleMapper;
 
 	// 로그인
 	@Override
@@ -28,7 +30,10 @@ public class MemberSecurityService implements UserDetailsService{
         
         if (memberDetail == null)
         	throw new UsernameNotFoundException("그런 사람 없다는데요");
-
+        
+        // 권한 확인
+        memberDetail.setRole(roleMapper.selectMemberRole(memberDetail.getNumber()));
+        
         return new CustomUserDetails(memberDetail);
 	}
 }

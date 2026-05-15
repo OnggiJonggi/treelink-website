@@ -26,8 +26,8 @@ public class CustomUserDetails implements UserDetails{
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        if (memberDetail.getRoles() != null) {
-            for (String role : memberDetail.getRoles()) {
+        if (memberDetail.getRole() != null) {
+            for (String role : memberDetail.getRole()) {
                 authorities.add(new SimpleGrantedAuthority(role));
             }
         }
@@ -47,13 +47,18 @@ public class CustomUserDetails implements UserDetails{
     }
     
     // 이름 꺼내쓰기. 원 UserDetails 클래스에는 없는 기능.
-    public String getNickName() {
-        return memberDetail.getName();
+    public String getName() {
+    	return memberDetail.getName();
     }
     
-    // 회원번호 꺼내기. 오버라이드 없네?
+    // 별명 꺼내쓰기
+    public String getNickname() {
+        return memberDetail.getNickname();
+    }
+    
+    // 회원번호 꺼내기
     public int getUserNo() {
-    	return memberDetail.getMemberNo();
+    	return memberDetail.getNumber();
     }
     
     // 계정 만료 여부

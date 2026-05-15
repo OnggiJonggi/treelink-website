@@ -45,11 +45,15 @@ public class MemberController {
 	 */
 	@PostMapping("/join")
 	public String join(@Valid MemberVO.Join memberJoin
-			,BindingResult bindingResult){
+			,BindingResult bindingResult
+			,Model model){
 		
 		// 유효성 검사 실패하면 가세요라
 		// BindingResult는 html파일 경로를 반환해도 됨
-		if(bindingResult.hasErrors()) return "member/join";
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("memberJoin", new MemberVO.Join());
+			return "member/join";
+		}
 		
 		service.join(memberJoin);
 		return "redirect:/";

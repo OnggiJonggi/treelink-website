@@ -9,7 +9,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import website.treelink.global.regex.MemberRegexp;
+import website.treelink.global.security.CryptedNumberVO;
 @Builder
 public class MemberVO {
 	@NoArgsConstructor
@@ -23,19 +25,21 @@ public class MemberVO {
 	@NoArgsConstructor
 	@AllArgsConstructor
 	@Getter
-	public static class Detail{
-		private int memberNo;
+	@Setter
+	@ToString(callSuper = true)
+	public static class Detail extends CryptedNumberVO{
 		private String userId;
 		private String userPwd;
 		private String name;
 		private String nickname;
-		private List<String> roles;
+		private List<String> role;
 	}
 	
 	@NoArgsConstructor
 	@AllArgsConstructor
 	@Getter
 	@Setter
+	@ToString
 	public static class Join{
 		private int memberNo;
 		

@@ -18,8 +18,8 @@ public class MemberDao {
 		return sqlSession.selectOne("MemberMapper.selectCheckId", userId);
 	}
 	
-	public int insertMember(MemberVO.Join memberJoin) {
-		return sqlSession.insert("MemberMapper.insertMember", memberJoin);
+	public int insertJoin(MemberVO.Join memberJoin) {
+		return sqlSession.insert("MemberMapper.insertJoin", memberJoin);
 	}
 
 	public int selectCheckNickname(String nickname) {
