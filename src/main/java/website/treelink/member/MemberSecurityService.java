@@ -16,8 +16,6 @@ import website.treelink.global.security.RoleMapper;
 @Service
 @RequiredArgsConstructor // final이 사용된 필드의 생성자@autowired 자동 생성
 public class MemberSecurityService implements UserDetailsService{
-	
-	//sqltemplate는 서비스 단계에서 쓰면 안돼요!
 	private final MemberDao memberDao;
 	private final RoleMapper roleMapper;
 

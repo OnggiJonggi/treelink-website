@@ -14,16 +14,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import lombok.RequiredArgsConstructor;
 import website.treelink.global.exception.CustomException;
-import website.treelink.global.exception.ErrorCode;
+import website.treelink.global.exception.ErrorCodeEnum;
 
 @Service
+@RequiredArgsConstructor
 public class BusinessNoCheckService {
-	
 	private final RestTemplate restTemplate;
-	public BusinessNoCheckService(RestTemplate restTemplate) {
-		this.restTemplate = restTemplate;
-	}
 	
 	@Value("${public-data.key}")
 	private String keyStr;
@@ -69,13 +67,13 @@ public class BusinessNoCheckService {
         	|| response.getBody().getCode() != null
     		|| response.getBody().getData() == null
     		|| response.getBody().getData().isEmpty())
-    		throw new CustomException(ErrorCode.API_SERVER_ERROR);
+    		throw new CustomException(ErrorCodeEnum.BUSINESS_NO_API_NOT_WORKING);
         
         else if(response.getBody().getData().get(0).getValid().equals("02"))
-        	throw new CustomException(ErrorCode.API_BADREQUEST);
+        	throw new CustomException(ErrorCodeEnum.BUSINESS_NO_NULL);
         
         else if(!response.getBody().getData().get(0).getValid().equals("01"))
-        	throw new CustomException(ErrorCode.API_SERVER_ERROR);
+        	throw new CustomException(ErrorCodeEnum.BUSINESS_NO_API_NOT_WORKING);
         	
 	}
 	

@@ -23,6 +23,7 @@
         
         <!-- Company -->
         <typeAlias type="website.treelink.company.CompanyVO$Registor" alias="CompanyRegistor"/>
+        <typeAlias type="website.treelink.company.CompanyVO$Detail" alias="CompanyDetail"/>
         
         
         <!-- 전역 설정 -->

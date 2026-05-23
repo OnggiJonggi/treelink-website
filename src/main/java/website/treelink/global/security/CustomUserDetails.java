@@ -8,20 +8,15 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.RequiredArgsConstructor;
 import website.treelink.member.MemberVO;
 
 //spring security에서 사용하는 UserDetails 수정
+@RequiredArgsConstructor
 public class CustomUserDetails implements UserDetails{
-	
+	private final MemberVO.Detail memberDetail;
 	private static final long serialVersionUID = 1L;
 	
-    private final MemberVO.Detail memberDetail;
-    
-    public CustomUserDetails(MemberVO.Detail memberDetail) {
-        this.memberDetail = memberDetail;
-    }
-
-
     //사용자 다중 권한 식별 장치
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -15,7 +15,9 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import website.treelink.global.regex.CompanyRegexp;
 
 public class CompanyVO {
@@ -55,4 +57,22 @@ public class CompanyVO {
 		@Pattern(regexp = CompanyRegexp.ETC_MEMO_REGEXP, message = "기타 메모가 이상해요")
 		private String etcMemo;
 	}
+	
+	@NoArgsConstructor
+	@AllArgsConstructor
+	@Getter
+	@ToString
+	public static class Detail {
+		private int companyNo;
+		private String businessNo;
+		private String companyName;
+		private String representativeName;
+		private String phone;
+		private String email;
+		private LocalDate createdOn;
+		private List<String> option;
+		private String etcMemo;
+	}
+	
+	
 }

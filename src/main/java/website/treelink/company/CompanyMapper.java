@@ -14,5 +14,7 @@ public interface CompanyMapper {
 			@Param("companyNo") int companyNo
 			,@Param("option") List<Integer> option
 			,@Param("etcMemo") String etcMemo);
+	
+	public CompanyVO.Detail selectCompanyDetail(int companyNo);
 
 }

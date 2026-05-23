@@ -10,6 +10,7 @@
     </selectKey>
     insert into COMPANY (
       COMPANY_NO
+      ,BUSINESS_NO
       ,COMPANY_NAME
       ,REPRESENTATIVE_NAME
       ,PHONE
@@ -17,6 +18,7 @@
       ,CREATED_ON
     ) VALUES(
       #{companyNo}
+      ,#{businessNo}
       ,#{companyName}
       ,#{representativeName}
       ,#{phone}

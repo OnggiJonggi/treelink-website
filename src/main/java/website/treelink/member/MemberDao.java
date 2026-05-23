@@ -1,14 +1,14 @@
 package website.treelink.member;
 
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import lombok.RequiredArgsConstructor;
+
 @Repository
+@RequiredArgsConstructor
 public class MemberDao {
-	
-	@Autowired
-	private SqlSessionTemplate sqlSession;
+	private final SqlSessionTemplate sqlSession;
 
 	public MemberVO.Detail selectMemberById(String userId) {
 		return sqlSession.selectOne("MemberMapper.selectMemberById", userId);

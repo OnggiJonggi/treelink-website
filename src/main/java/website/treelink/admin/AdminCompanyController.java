@@ -1,6 +1,5 @@
 package website.treelink.admin;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,9 +14,11 @@ import website.treelink.global.api.BusinessNoCheckVO;
 @Controller
 @RequestMapping("/admin/company")
 public class AdminCompanyController {
-	@Autowired
-	AdminCompanyService service;
-	
+	AdminCompanyService adminService;
+	public AdminCompanyController(AdminCompanyService adminService) {
+		this.adminService = adminService;
+	}
+
 	/**
 	 * 사업체 등록 페이지로
 	 */
@@ -43,7 +44,7 @@ public class AdminCompanyController {
 			return "admin/company/registor";
 		}
 		
-		return "redirect:/company/view"+service.companyRegistor(companyRegistor);
+		return "redirect:/company/view/"+adminService.companyRegistor(companyRegistor);
 	}
 	
 

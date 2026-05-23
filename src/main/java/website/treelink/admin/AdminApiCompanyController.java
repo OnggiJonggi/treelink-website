@@ -1,6 +1,5 @@
 package website.treelink.admin;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,14 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import website.treelink.global.api.BusinessNoCheckService;
 import website.treelink.global.api.BusinessNoCheckVO;
 
 @RestController
 @RequestMapping("/api/admin")
+@RequiredArgsConstructor
 public class AdminApiCompanyController {
-	@Autowired
-	BusinessNoCheckService businessNoCheckService;
+	public final BusinessNoCheckService businessNoCheckService;
 	
 	/**
 	 * 사업자 등록번호 진위확인
