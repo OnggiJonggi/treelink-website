@@ -29,8 +29,9 @@
   사업자등록번호 확인(get, /api/admin/company/check-businessno)
   폼 제출(post, /admin/company/registor)
 
-업체 세부 뷰(/company/view/{companyNo})
+업체 세부 뷰(/company/{companyNo})
   위치 보기(get, /company/{companyNo}/location)
+  평가 보기(get, /evaluation/{companyNo})
   권한 - ADMIN
     업체 수정 페이지(get, /admin/company/{companyNo}/update)
     업체 

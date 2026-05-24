@@ -44,7 +44,7 @@ public class AdminCompanyController {
 			return "admin/company/registor";
 		}
 		
-		return "redirect:/company/view/"+adminService.companyRegistor(companyRegistor);
+		return "redirect:/company/"+adminService.companyRegistor(companyRegistor);
 	}
 	
 

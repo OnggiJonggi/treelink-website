@@ -16,7 +16,7 @@ import website.treelink.global.exception.ErrorCodeEnum;
 public class CompanyController {
 	private final CompanyService companyService;
 	
-	@GetMapping("/view/{companyNo}")
+	@GetMapping("/{companyNo}")
 	public String goView(@PathVariable("companyNo") int companyNo
 			,Model model) {
 		
@@ -25,6 +25,6 @@ public class CompanyController {
 		
 		model.addAttribute("companyDetail", detail);
 		
-		return "company/view";
+		return "company/detail";
 	}
 }
