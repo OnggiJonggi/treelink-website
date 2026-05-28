@@ -1,0 +1,29 @@
+package com.tl.global.exception;
+
+import org.springframework.http.HttpStatus;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+/**
+ * 예외 처리 코드 저장소
+ */
+@Getter
+@RequiredArgsConstructor
+public enum ErrorCodeEnum {
+	CANNOT_LOGIN(HttpStatus.INTERNAL_SERVER_ERROR, "MEMBER-001", "로그인이 안 되는데요"),
+	CANNOT_CREATE_MEMBER(HttpStatus.INTERNAL_SERVER_ERROR, "MEMBER-002", "새로운 회원을 생성할 수 없습니다."),
+	ID_IS_DUPLICATED(HttpStatus.INTERNAL_SERVER_ERROR, "MEMBER-003", "이미 사용된 아이디입니다."),
+	NICKNAME_IS_DUPLICATED(HttpStatus.INTERNAL_SERVER_ERROR, "MEMBER-004", "이미 사용된 닉네임입니다"),
+	
+	CANNOT_GRANT_ROLE(HttpStatus.INTERNAL_SERVER_ERROR, "MEMBER-101", "권한을 부여할 수 없습니다"),
+	
+	BUSINESS_NO_API_NOT_WORKING(HttpStatus.INTERNAL_SERVER_ERROR, "API-101", "API작동 실패"),
+	BUSINESS_NO_NULL(HttpStatus.BAD_REQUEST, "API-102", "존재하지 않는 사업자입니다"),
+	
+	COMPANY_NOT_FOUND(HttpStatus.NOT_FOUND, "COMPANY-101", "그런 회사 없어요");
+	
+	private final HttpStatus httpStatus;
+	private final String code;
+	private final String message;
+}

@@ -14,19 +14,19 @@
     
     <typeAliases>
     	<!-- Member -->
-        <typeAlias type="website.treelink.member.MemberVO$Login" alias="MemberLogin"/>
-        <typeAlias type="website.treelink.member.MemberVO$Detail" alias="MemberDetail"/>
-        <typeAlias type="website.treelink.member.MemberVO$Join" alias="MemberJoin"/>
+        <typeAlias type="com.tl.member.MemberVO$Login" alias="MemberLogin"/>
+        <typeAlias type="com.tl.member.MemberVO$Detail" alias="MemberDetail"/>
+        <typeAlias type="com.tl.member.MemberVO$Join" alias="MemberJoin"/>
         
         <!-- Role -->
-        <typeAlias type="website.treelink.global.security.RoleVO$UrlAccessCheck" alias="RoleUrlAccessCheck"/>
+        <typeAlias type="com.tl.global.security.RoleVO$UrlAccessCheck" alias="RoleUrlAccessCheck"/>
         
         <!-- Company -->
-        <typeAlias type="website.treelink.company.CompanyVO$Registor" alias="CompanyRegistor"/>
-        <typeAlias type="website.treelink.company.CompanyVO$Detail" alias="CompanyDetail"/>
+        <typeAlias type="com.tl.company.CompanyVO$Registor" alias="CompanyRegistor"/>
+        <typeAlias type="com.tl.company.CompanyVO$Detail" alias="CompanyDetail"/>
         
         
         <!-- 전역 설정 -->
-        <package name="website.treelink"/>
+        <package name="com.tl"/>
     </typeAliases>
 </configuration>
